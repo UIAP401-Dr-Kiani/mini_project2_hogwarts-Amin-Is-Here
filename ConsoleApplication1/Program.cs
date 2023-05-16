@@ -21,7 +21,8 @@ namespace ConsoleApplication1
             Console.WriteLine("Sign In As Dumbledore (D)");
             Console.WriteLine("Sign In As Ticher (T)");
             Console.WriteLine("Sign In As Student (S)");
-            Console.ReadLine();
+            string input = Console.ReadLine();
+            
 
 
 
