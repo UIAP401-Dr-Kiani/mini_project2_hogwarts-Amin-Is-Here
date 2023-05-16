@@ -43,9 +43,15 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="AuthorizedPersons.cs" />
+        <Compile Include="Group.cs" />
         <Compile Include="human.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="Properties\Dorm.cs" />
+        <Compile Include="Properties\Dumbledore.cs" />
+        <Compile Include="Properties\Student.cs" />
+        <Compile Include="Properties\Teacher.cs" />
     </ItemGroup>
     <ItemGroup>
       <None Include="packages.config" />

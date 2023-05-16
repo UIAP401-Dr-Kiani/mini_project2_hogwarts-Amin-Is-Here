@@ -11,5 +11,12 @@
         public string Password { get; set; }
         public string RaceType { get; set; }
         public string Role { get; set; }
+        public BloodType TypeOfBlood { get; set; }
+        public enum BloodType
+        {
+            HalfBlood,
+            PureBlood,
+            MuggleBlood
+        }
     }
 }
