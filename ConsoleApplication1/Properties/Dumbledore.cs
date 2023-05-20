@@ -2,10 +2,10 @@
 
 namespace ConsoleApplication1.Properties
 {
-    public class Dumbledore:AuthorizedPersons
+    public class Dumbledore : AuthorizedPersons
     {
         public static string UserName = "admin";
-        public static  string  PassWord = "ADMIN";
+        public static string PassWord = "ADMIN";
         public List<Dorm> dorm;
     }
 }

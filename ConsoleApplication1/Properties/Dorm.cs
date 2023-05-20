@@ -9,8 +9,8 @@
         public Gender gender;
         public enum Gender
         {
-            man , woman
+            man, woman
         }
-        
+
     }
 }

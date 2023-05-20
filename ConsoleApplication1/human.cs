@@ -2,21 +2,21 @@
 {
     public class Human
     {
-        public string Name { get; set; }
-        public string Family { get; set; }
-        public int DateOfBirth { get; set; }
-        public string Gender { get; set; }
-        public string Father { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string RaceType { get; set; }
-        public string Role { get; set; }
-        public BloodType TypeOfBlood { get; set; }
-        public enum BloodType
+        public string name { get; set; }
+        public string family { get; set; }
+        public string dateOfBirth { get; set; }
+        public string gender { get; set; }
+        public string father { get; set; }
+        public string username { get; set; }
+        public string password { get; set; }
+
+        public type TypeOfBlood { get; set; }
+        public enum type
         {
             HalfBlood,
             PureBlood,
             MuggleBlood
         }
+        public string role { get; set; }
     }
 }

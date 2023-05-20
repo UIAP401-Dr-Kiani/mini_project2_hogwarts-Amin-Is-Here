@@ -1,8 +1,6 @@
-﻿using System.Runtime.InteropServices;
-
-namespace ConsoleApplication1.Properties
+﻿namespace ConsoleApplication1.Properties
 {
-    public class Teacher: AuthorizedPersons
+    public class Teacher : AuthorizedPersons
     {
         public bool SameTime;
 
