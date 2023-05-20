@@ -17,6 +17,39 @@ namespace ConsoleApplication1
             return studentJsonFile;
        }
 
+        public static void Students()
+        {
+            List<Human> students = new List<Human>();
+            List<Human> people = StudentFile();
+            for (int i = 0; i < people.Count; i++)
+            {
+                if (people[i].role=="student")
+
+                {
+                    students.Add(people[i]);
+                }
+                
+            }
+            
+
+        }
+
+        public static void Teachers()
+        {
+            List<Human> tichers = new List<Human>();
+            List<Human> people = StudentFile();
+            int j = 0;
+            for (int i = 0; i < people.Count-1; i++)
+            {
+                if (people[i].role=="ticher")
+
+                {
+                    tichers.Add(people[i]);
+                }
+                
+            }
+        }
+
 
         public static void DormMan()
         {
@@ -31,9 +64,7 @@ namespace ConsoleApplication1
                 DormInformation += 10;
                 DormInformation -= 4;
             }
-
-            Console.Write("Your Dorm information is :");
-            Console.WriteLine(DormInformation);
+            
             if (DormInformation == 453)
             {
                 Console.WriteLine("Full!!!!");
@@ -110,6 +141,7 @@ namespace ConsoleApplication1
             Console.Clear();
             if (input == Dumbledore.UserName && input2 == Dumbledore.PassWord)
             {
+                DumbledorePage();
 
             }
             else
@@ -124,9 +156,103 @@ namespace ConsoleApplication1
         }
         public static void DumbledorePage()
         {
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
             Console.WriteLine("                wellcome Dumbledore ");
-            Console.WriteLine("1)");
-             
+            Console.ResetColor();
+            Console.WriteLine("1) Write And Send Letters To Students");
+            Console.WriteLine("2) ");
+
+
+
+
+            string input = Console.ReadLine();
+            if (input=="w")
+            {
+               WriteAndSendLettersToStudents();
+            }
+
+        }
+
+        public static void WriteAndSendLettersToStudents()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            Console.WriteLine("1) Write the letter");
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("2) Send the letter");
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("3) Exit");
+            Console.ResetColor();
+           string input= Console.ReadLine();
+            if (input== "w")
+            {
+                WriteLetter();
+            }
+            else if (input== "s")
+            {
+                SendLetter();
+            }
+            else if (input == "e")
+            {
+                 DumbledorePage();
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Wrong Input");
+                Console.ResetColor();
+                WriteAndSendLettersToStudents();
+            }
+
+        }
+        public static void WriteLetter()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            Console.WriteLine("Please compleate every field.");
+            Console.ResetColor();
+            try
+            {
+                Console.Write("* Train Number :");
+                string TrainNumber = Console.ReadLine();
+                Console.Write("* Date Letter :");
+                string DateLetter = Console.ReadLine();
+                Console.WriteLine("Letters");
+                string Letters = Console.ReadLine();
+                using (var Writer = new StreamWriter("Massage.txt"))
+                {
+                    Writer.WriteLine(TrainNumber + "|" + DateLetter + "|" + Letters);
+                }
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Your massage saved.");
+                Console.ResetColor();
+                DumbledorePage();
+            }
+            catch (FormatException)
+            {
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Please try again and write true.");
+                Console.ResetColor();
+                WriteAndSendLettersToStudents();
+
+            }
+        }
+
+        public static void SendLetter()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            Console.WriteLine("Write student's name.");
+            Console.ResetColor();
+            Console.WriteLine("Username : ");
+            string input= Console.ReadLine();
+            List<Human> studentcheck = StudentFile();
+            for (int i = 0; i < studentcheck.Count; i++)
+            {
+                if (input == studentcheck[i].username)
+                    Console.WriteLine(i); 
+            }
         }
 
         public static void TicherSignIn()
@@ -170,7 +296,10 @@ namespace ConsoleApplication1
 
         public static void Main(string[] args)
         {
-            MainPage();
+            Students();
+            Console.ReadKey();
+           Teachers();
+           MainPage();
             Console.WriteLine();
         }
 

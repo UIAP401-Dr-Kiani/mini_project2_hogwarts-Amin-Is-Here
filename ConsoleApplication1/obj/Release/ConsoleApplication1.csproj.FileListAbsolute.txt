@@ -1,0 +1,2 @@
+C:\Users\amin\Desktop\harry\mini_project2_hogwarts-Amin-Is-Here\ConsoleApplication1\obj\Release\ConsoleApplication1.csprojAssemblyReference.cache
+C:\Users\amin\Desktop\harry\mini_project2_hogwarts-Amin-Is-Here\ConsoleApplication1\obj\Release\ConsoleApplication1.csproj.CoreCompileInputs.cache
