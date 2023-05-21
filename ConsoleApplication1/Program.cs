@@ -100,6 +100,7 @@ namespace ConsoleApplication1
 
         public static void MainPage()
         {
+            Console.Clear();
             Console.WriteLine("********Wellcome To Hogwarts************ ");
             Console.WriteLine("---------------------------------------");
             Console.WriteLine("Sign In As Dumbledore (D)");
@@ -108,16 +109,19 @@ namespace ConsoleApplication1
             string input = Console.ReadLine();
             if (input == "D")
             {
+                Console.Clear();
                 DumbledoreSignIn();
             }
 
             else if (input == "T")
             {
+                Console.Clear();
                 TicherSignIn();
 
             }
             else if (input == "S")
             {
+                Console.Clear();
                 StudentSignIn();
             }
             else
@@ -266,6 +270,10 @@ namespace ConsoleApplication1
             List<Human> Siginname = StudentFile();
             int index = 0;
             int count = 0;
+            if (File.Exists("Ticher.txt"))
+            {
+                File.Delete("Ticher.txt");
+            }
             for (int i = 0; i < Siginname.Count; i++)
             {
                 if (Siginname[i].role == "teacher" && Siginname[i].username == input && Siginname[i].password == input2)
@@ -328,15 +336,20 @@ namespace ConsoleApplication1
             string input = Console.ReadLine();
             if (input == "1")
             {
+                Console.Clear();
+                TeacherLesson();
 
             }
             else if (input == "2")
             {
+                Console.Clear();
                 Teacher2Lessons();
 
             }
             else if (input == "e")
             {
+                Console.Clear();
+                TeacherPage();
 
             }
             else
@@ -355,7 +368,7 @@ namespace ConsoleApplication1
                         Console.ForegroundColor = ConsoleColor.DarkBlue;
                         Console.WriteLine("              <<choose lessons>>");
                         Console.ResetColor();
-                        Console.WriteLine("Lessons : chemistry(c) , magic(m) , occultims(o) , sport(s) , exit(e).");
+                        Console.WriteLine("Lessons : chemistry(c) , magic(m) , Plant Biology (o) , sport(s) , exit(e).");
                         Console.WriteLine("then choose your start and end time");
                         Console.WriteLine("Times : 8-10 , 10-12  , 14-16 , 16-18");
                         Console.Write("At first choose your lesson  :");
@@ -371,61 +384,61 @@ namespace ConsoleApplication1
                         else if (input1 == "c")
                         {
                             Console.Write("Please enter your start time :");
-                            string StartTime = Console.ReadLine();
+                            string startTime = Console.ReadLine();
                             Console.Write("Please enter your end time :");
-                            string EndTime = Console.ReadLine();
+                            string endTime = Console.ReadLine();
                             TeacherList.Add(new Teacher
                             {
                                 Name = File.ReadAllText("Ticher.txt"),
                                TwoClasses = true,
                                 Lesson = "Chemistry",
-                                Start= StartTime,
-                                End = EndTime
+                                Start= startTime,
+                                End = endTime
                             });
                         }
                         else if(input1 == "m")
                         {
                             Console.Write("Please enter your start time :");
-                            string StartTime = Console.ReadLine();
+                            string startTime = Console.ReadLine();
                             Console.Write("Please enter your end time :");
-                            string EndTime = Console.ReadLine();
+                            string endTime = Console.ReadLine();
                             TeacherList.Add(new Teacher
                             {
                                 Name = File.ReadAllText("Ticher.txt"),
                                 TwoClasses = true,
-                                Lesson = "Chemistry",
-                                Start= StartTime,
-                                End = EndTime
+                                Lesson = "magic",
+                                Start= startTime,
+                                End = endTime
                             });
                         }
-                        else if (input1 == "o")
+                        else if (input1 == "p")
                         {
                             Console.Write("Please enter your start time :");
-                            string StartTime = Console.ReadLine();
+                            string startTime = Console.ReadLine();
                             Console.Write("Please enter your end time :");
-                            string EndTime = Console.ReadLine();
+                            string endTime = Console.ReadLine();
                             TeacherList.Add(new Teacher
                             {
                                 Name = File.ReadAllText("Ticher.txt"),
                                 TwoClasses = true,
-                                Lesson = "Chemistry",
-                                Start= StartTime,
-                                End = EndTime
+                                Lesson = "Plant Biology ",
+                                Start= startTime,
+                                End = endTime
                             });
                         }
                         else if (input1 == "s")
                         {
                             Console.Write("Please enter your start time :");
-                            string StartTime = Console.ReadLine();
+                            string startTime = Console.ReadLine();
                             Console.Write("Please enter your end time :");
-                            string EndTime = Console.ReadLine();
+                            string endTime = Console.ReadLine();
                             TeacherList.Add(new Teacher
                             {
                                 Name = File.ReadAllText("Ticher.txt"),
                                 TwoClasses = true,
-                                Lesson = "Chemistry",
-                                Start= StartTime,
-                                End = EndTime
+                                Lesson = "sport",
+                                Start= startTime,
+                                End = endTime
                             });
                         }
                         else 
@@ -527,7 +540,7 @@ namespace ConsoleApplication1
                             }
                             
                         }
-                        else if (input == "o")
+                        else if (input == "p")
                         {
                             Console.Write("Please enter your start time :");
                             string StartTime = Console.ReadLine();
@@ -555,7 +568,7 @@ namespace ConsoleApplication1
                                 {
                                     Name =File.ReadAllText("Ticher.txt") ,
                                     TwoClasses= true,
-                                    Lesson =  "occultism",
+                                    Lesson =  "Plant Biology ",
                                     Start = StartTime,
                                     End= EndTime
                                 });
@@ -608,6 +621,22 @@ namespace ConsoleApplication1
                     }
 
         }
+
+        public static void TeacherShow()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine("Available Teachers ");
+            Console.ResetColor();
+            foreach (var teacher in TeacherList)
+            {
+                Console.WriteLine($"Teacher name :{teacher.Name}");
+                Console.WriteLine($"Lesson :{teacher.Lesson}");
+                Console.WriteLine($"Satrt time :{teacher.Start} , End time :{teacher.End}");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("_______________________________________");
+                Console.ResetColor();
+            }
+        }
         public static void StudentSignIn()
         {
             Console.Write("Username :");
@@ -617,16 +646,96 @@ namespace ConsoleApplication1
             List<Human> Siginname = StudentFile();
             int index = 0;
             int count = 0;
+            if (File.Exists("Student.txt"))
+            {
+             File.Delete("Student.txt");   
+            }
             for (int i = 0; i < Siginname.Count; i++)
             {
                 if (Siginname[i].role == "student" && Siginname[i].username == input && Siginname[i].password == input2)
                 {
+                    using (var Writer = new StreamWriter("Student.txt"))
+                    {
+                        Writer.WriteLine(Siginname[i].name);
+                    }
+                    StudentMainPage();
                 }
 
             }
+            
             Console.WriteLine("WrongInput!!!!!");
+            MainPage();
 
         }
+
+        public static void StudentMainPage()
+        {
+
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("                     Wellcome " + File.ReadAllText("Student.txt"));
+            Console.ResetColor();
+            Console.WriteLine("1) Select unit (s)");
+            Console.WriteLine("2) Personal page (p)");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("3) Exit (3)");
+            Console.ResetColor();
+            string input = Console.ReadLine();
+            if (input == "s")
+            {
+                Console.Clear();
+                
+            }
+            else if (input== "p")
+            {
+                Console.Clear();
+            }
+            else if (input == "e")
+            {
+                Console.Clear();
+                
+            }
+            else
+            {
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Wrong Input!!! ");
+                Console.ResetColor();
+                StudentMainPage();
+            }
+            
+
+        }
+
+        public static void SelectUnit()
+        {
+            int Units = 0;
+            Console.WriteLine("Hello " + File.ReadAllText("Student.txt"));
+            Console.WriteLine("List Of Lessons and Their Units");
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            Console.WriteLine("1 ) Magic : 3 Units ");
+            Console.WriteLine("Key to choose : (m) ");
+            Console.WriteLine("___________________________________");
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine("2 ) Plant Biology : 3 Units ");
+            Console.WriteLine("Key to choose : (p) ");
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine("3 ) Chemistry : 2 Units ");
+            Console.WriteLine("Key to choose : (c) ");
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("4 ) Sports : 1 Unit ");
+            Console.WriteLine("Key to choose : (s) ");
+            Console.ResetColor();
+            
+            
+            Console.WriteLine("Exit(e)");
+            Console.WriteLine("List of teacher :");
+            TeacherShow();
+            //ChooseLesson();   
+        }
+
 
         public static void Main(string[] args)
         {

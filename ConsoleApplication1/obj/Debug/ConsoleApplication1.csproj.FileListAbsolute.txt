@@ -1,11 +1,11 @@
+C:\Users\amin\Desktop\harry\mini_project2_hogwarts-Amin-Is-Here\ConsoleApplication1\obj\Debug\ConsoleApplication1.csproj.AssemblyReference.cache
+C:\Users\amin\Desktop\harry\mini_project2_hogwarts-Amin-Is-Here\ConsoleApplication1\obj\Debug\ConsoleApplication1.csproj.SuggestedBindingRedirects.cache
+C:\Users\amin\Desktop\harry\mini_project2_hogwarts-Amin-Is-Here\ConsoleApplication1\obj\Debug\ConsoleApplication1.csproj.CoreCompileInputs.cache
+C:\Users\amin\Desktop\harry\mini_project2_hogwarts-Amin-Is-Here\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
 C:\Users\amin\Desktop\harry\mini_project2_hogwarts-Amin-Is-Here\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
 C:\Users\amin\Desktop\harry\mini_project2_hogwarts-Amin-Is-Here\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
-C:\Users\amin\Desktop\harry\mini_project2_hogwarts-Amin-Is-Here\ConsoleApplication1\obj\Debug\ConsoleApplication1.csproj.CoreCompileInputs.cache
-C:\Users\amin\Desktop\harry\mini_project2_hogwarts-Amin-Is-Here\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
-C:\Users\amin\Desktop\harry\mini_project2_hogwarts-Amin-Is-Here\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
 C:\Users\amin\Desktop\harry\mini_project2_hogwarts-Amin-Is-Here\ConsoleApplication1\bin\Debug\Newtonsoft.Json.dll
 C:\Users\amin\Desktop\harry\mini_project2_hogwarts-Amin-Is-Here\ConsoleApplication1\bin\Debug\Newtonsoft.Json.xml
 C:\Users\amin\Desktop\harry\mini_project2_hogwarts-Amin-Is-Here\ConsoleApplication1\obj\Debug\ConsoleApplication1.csproj.CopyComplete
-C:\Users\amin\Desktop\harry\mini_project2_hogwarts-Amin-Is-Here\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
-C:\Users\amin\Desktop\harry\mini_project2_hogwarts-Amin-Is-Here\ConsoleApplication1\obj\Debug\ConsoleApplication1.csproj.AssemblyReference.cache
-C:\Users\amin\Desktop\harry\mini_project2_hogwarts-Amin-Is-Here\ConsoleApplication1\obj\Debug\ConsoleApplication1.csproj.SuggestedBindingRedirects.cache
+C:\Users\amin\Desktop\harry\mini_project2_hogwarts-Amin-Is-Here\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Users\amin\Desktop\harry\mini_project2_hogwarts-Amin-Is-Here\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
