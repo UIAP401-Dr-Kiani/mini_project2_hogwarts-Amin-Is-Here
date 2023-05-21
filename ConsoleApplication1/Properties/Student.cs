@@ -2,6 +2,8 @@
 {
     public class Student : AuthorizedPersons
     {
+        public string Name { get; set; }
+        public int Term { get; set; }
         public int PassedUnits { get; set; }
         public int Dorm { get; set; }
         public string Lesson { get; set; }
