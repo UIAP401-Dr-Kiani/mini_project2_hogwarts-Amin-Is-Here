@@ -8,6 +8,8 @@ namespace ConsoleApplication1
 {
     internal class Program
     {
+        static List<Student> StudentList = new List<Student>();
+        static List<Teacher> TeacherList = new List<Teacher>();
         public static int DormInformation = 110;
         public static int DormInformationW = 110;
         public static List<Human> StudentFile()
@@ -227,7 +229,7 @@ namespace ConsoleApplication1
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Your massage saved.");
                 Console.ResetColor();
-                DumbledorePage();
+                WriteAndSendLettersToStudents();
             }
             catch (FormatException)
             {
@@ -268,11 +270,169 @@ namespace ConsoleApplication1
             {
                 if (Siginname[i].role == "teacher" && Siginname[i].username == input && Siginname[i].password == input2)
                 {
+                    using (var Writer = new StreamWriter("Ticher.txt"))
+                    {
+                        Writer.WriteLine(input);
+                    }
+                    TeacherPage();
                 }
 
             }
             Console.WriteLine("WrongInput!!!!!");
 
+        }
+
+        public static void TeacherPage()
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("_-_-_-_-_-_-WELLCOME TICHER-_-_-_-_-_-");
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("1) Choose Lessons (c)");
+            Console.WriteLine("2) Exit (e)");
+            Console.ResetColor();
+            string input = Console.ReadLine();
+            if (input== "c")
+            {
+                TeacherLesson();
+            }
+            else if (input == "e")
+            {
+                MainPage();
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Wrong Input!!!");
+                Console.ResetColor();
+            }
+        }
+
+        public static void TeacherLesson()
+        {
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("Wellcmoe" + File.ReadAllText("Ticher.txt"));
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("Please Chooes Your Abillity");
+            Console.ResetColor();
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("Tich In 1 class (1)");
+            Console.WriteLine("Tich In 2 classes (2)");
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Exit (e)");
+            Console.ResetColor();
+            string input = Console.ReadLine();
+            if (input == "1")
+            {
+
+            }
+            else if (input == "2")
+            {
+
+            }
+            else if (input == "e")
+            {
+
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Wronng Input!!!");
+                Console.ResetColor();
+            }
+        } 
+        public static void Teacher2Lessons()
+        {
+
+            while(true) 
+            {
+                        Console.Clear();
+                        Console.WriteLine("choose lesson :");
+                        Console.WriteLine("Lessons : chemistry(c) , magic(m) , occultims(o) , sport(s) , exit(e).");
+                        Console.WriteLine("then choose your start and end time");
+                        Console.WriteLine("Times : 8-10 , 10-12  , 14-16 , 16-18");
+                        Console.Write("Please answer Q1  :");
+                        string AnswerQ1 = Console.ReadLine();
+                        if (AnswerQ1 == "e") 
+                        {
+                            Console.Clear();
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.WriteLine("you added all lesson you want.");
+                            Console.ResetColor();
+                            TeacherPage();
+                        }
+                        else if (AnswerQ1 == "c")
+                        {
+                            Console.Write("Please enter your start time :");
+                            string StartTime = Console.ReadLine();
+                            Console.Write("Please enter your end time :");
+                            string EndTime = Console.ReadLine();
+                            TeacherList.Add(new Teacher
+                            {
+                                Name = File.ReadAllText("Ticher.txt"),
+                               TwoClasses = true,
+                                Lesson = "Chemistry",
+                                Start= StartTime,
+                                End = EndTime
+                            });
+                        }
+                        else if(AnswerQ1 == "m")
+                        {
+                            Console.Write("Please enter your start time :");
+                            string StartTime = Console.ReadLine();
+                            Console.Write("Please enter your end time :");
+                            string EndTime = Console.ReadLine();
+                            TeacherList.Add(new Teacher
+                            {
+                                Name = File.ReadAllText("Ticher.txt"),
+                                TwoClasses = true,
+                                Lesson = "Chemistry",
+                                Start= StartTime,
+                                End = EndTime
+                            });
+                        }
+                        else if (AnswerQ1 == "o")
+                        {
+                            Console.Write("Please enter your start time :");
+                            string StartTime = Console.ReadLine();
+                            Console.Write("Please enter your end time :");
+                            string EndTime = Console.ReadLine();
+                            TeacherList.Add(new Teacher
+                            {
+                                Name = File.ReadAllText("Ticher.txt"),
+                                TwoClasses = true,
+                                Lesson = "Chemistry",
+                                Start= StartTime,
+                                End = EndTime
+                            });
+                        }
+                        else if (AnswerQ1 == "s")
+                        {
+                            Console.Write("Please enter your start time :");
+                            string StartTime = Console.ReadLine();
+                            Console.Write("Please enter your end time :");
+                            string EndTime = Console.ReadLine();
+                            TeacherList.Add(new Teacher
+                            {
+                                Name = File.ReadAllText("Ticher.txt"),
+                                TwoClasses = true,
+                                Lesson = "Chemistry",
+                                Start= StartTime,
+                                End = EndTime
+                            });
+                        }
+                        else 
+                        {
+                            Console.Clear();
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("you enter wrong key please try again.");
+                            Console.ResetColor(); 
+                            TeacherLesson(); 
+                        } 
+            } 
         }
         public static void StudentSignIn()
         {
@@ -297,9 +457,8 @@ namespace ConsoleApplication1
         public static void Main(string[] args)
         {
             Students();
-            Console.ReadKey();
-           Teachers();
-           MainPage();
+            Teachers();
+            MainPage();
             Console.WriteLine();
         }
 
