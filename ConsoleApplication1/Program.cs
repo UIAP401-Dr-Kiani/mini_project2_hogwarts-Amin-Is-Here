@@ -272,7 +272,7 @@ namespace ConsoleApplication1
                 {
                     using (var Writer = new StreamWriter("Ticher.txt"))
                     {
-                        Writer.WriteLine(input);
+                        Writer.WriteLine(Siginname[i].name);
                     }
                     TeacherPage();
                 }
@@ -285,7 +285,7 @@ namespace ConsoleApplication1
         public static void TeacherPage()
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("_-_-_-_-_-_-WELLCOME TICHER-_-_-_-_-_-");
+            Console.WriteLine("_-_-_-_-_-_-WELLCOME TEACHER-_-_-_-_-_-");
             Console.ResetColor();
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("1) Choose Lessons (c)");
@@ -310,16 +310,17 @@ namespace ConsoleApplication1
 
         public static void TeacherLesson()
         {
+            Console.Clear();
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("Wellcmoe" + File.ReadAllText("Ticher.txt"));
+            Console.WriteLine("                     Wellcome " + File.ReadAllText("Ticher.txt"));
             Console.ResetColor();
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Please Chooes Your Abillity");
             Console.ResetColor();
-            Console.WriteLine();
+            
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("Tich In 1 class (1)");
-            Console.WriteLine("Tich In 2 classes (2)");
+            Console.WriteLine("Teach In 1 class (1)");
+            Console.WriteLine("Teach In 2 classes (2)");
             Console.ResetColor();
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Exit (e)");
@@ -331,6 +332,7 @@ namespace ConsoleApplication1
             }
             else if (input == "2")
             {
+                Teacher2Lessons();
 
             }
             else if (input == "e")
@@ -350,13 +352,15 @@ namespace ConsoleApplication1
             while(true) 
             {
                         Console.Clear();
-                        Console.WriteLine("choose lesson :");
+                        Console.ForegroundColor = ConsoleColor.DarkBlue;
+                        Console.WriteLine("              <<choose lessons>>");
+                        Console.ResetColor();
                         Console.WriteLine("Lessons : chemistry(c) , magic(m) , occultims(o) , sport(s) , exit(e).");
                         Console.WriteLine("then choose your start and end time");
                         Console.WriteLine("Times : 8-10 , 10-12  , 14-16 , 16-18");
-                        Console.Write("Please answer Q1  :");
-                        string AnswerQ1 = Console.ReadLine();
-                        if (AnswerQ1 == "e") 
+                        Console.Write("At first choose your lesson  :");
+                        string input1 = Console.ReadLine();
+                        if (input1 == "e") 
                         {
                             Console.Clear();
                             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -364,7 +368,7 @@ namespace ConsoleApplication1
                             Console.ResetColor();
                             TeacherPage();
                         }
-                        else if (AnswerQ1 == "c")
+                        else if (input1 == "c")
                         {
                             Console.Write("Please enter your start time :");
                             string StartTime = Console.ReadLine();
@@ -379,7 +383,7 @@ namespace ConsoleApplication1
                                 End = EndTime
                             });
                         }
-                        else if(AnswerQ1 == "m")
+                        else if(input1 == "m")
                         {
                             Console.Write("Please enter your start time :");
                             string StartTime = Console.ReadLine();
@@ -394,7 +398,7 @@ namespace ConsoleApplication1
                                 End = EndTime
                             });
                         }
-                        else if (AnswerQ1 == "o")
+                        else if (input1 == "o")
                         {
                             Console.Write("Please enter your start time :");
                             string StartTime = Console.ReadLine();
@@ -409,7 +413,7 @@ namespace ConsoleApplication1
                                 End = EndTime
                             });
                         }
-                        else if (AnswerQ1 == "s")
+                        else if (input1 == "s")
                         {
                             Console.Write("Please enter your start time :");
                             string StartTime = Console.ReadLine();
@@ -433,6 +437,176 @@ namespace ConsoleApplication1
                             TeacherLesson(); 
                         } 
             } 
+        }
+        public static void TeacherOneLesson()
+        {
+            
+                     while (true)
+                     {
+                         Console.ForegroundColor = ConsoleColor.DarkBlue;
+                        Console.WriteLine("choose lesson :");
+                        Console.ResetColor();
+                        Console.WriteLine("lessons : chemistry(c) , magic(m) , occultims(o) , sport(s) , exit(e).");
+                        Console.Write("Please choose your lesson :");
+                        string input = Console.ReadLine();
+                        if (input == "e")
+                        {
+                            Console.Clear();
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.WriteLine("you added all lessons.");
+                            Console.ResetColor();
+                            TeacherPage();
+                        }
+                        else if (input == "c")
+                        {
+                            Console.Write("Please enter your start time :");
+                            string StartTime = Console.ReadLine();
+                            Console.Write("Please enter your end time :");
+                            string EndTime = Console.ReadLine();
+                            int num = 0;
+                            foreach(var teacher in TeacherList)
+                            {
+                                if(teacher.Name == File.ReadAllText("Ticher.txt") && teacher.Start == StartTime && teacher.End == EndTime)
+                                {
+                                    num++;
+                                }
+                            }
+                            if(num >= 1)
+                            {
+                                Console.Clear();
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.WriteLine("you can not choose 2 lesson in one time.");
+                                Console.ResetColor();
+                                TeacherOneLesson();
+                            }
+                            else
+                            {
+                                TeacherList.Add(new Teacher
+                                {
+                                    Name =File.ReadAllText("Ticher.txt") ,
+                                    TwoClasses= true,
+                                    Lesson = "Chemistry",
+                                    Start = StartTime,
+                                    End= EndTime
+                                });
+                            }
+                            
+                        }
+                        else if (input == "m")
+                        {
+                            Console.Write("Please enter your start time :");
+                            string StartTime = Console.ReadLine();
+                            Console.Write("Please enter your end time :");
+                            string EndTime = Console.ReadLine();
+                            int num = 0;
+                            foreach(var teacher in TeacherList)
+                            {
+                                if(teacher.Name == File.ReadAllText("Ticher.txt") && teacher.Start == StartTime && teacher.End == EndTime)
+                                {
+                                    num++;
+                                }
+                            }
+                            if(num >= 1)
+                            {
+                                Console.Clear();
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.WriteLine("you can not choose 2 lesson in one time.");
+                                Console.ResetColor();
+                                TeacherOneLesson();
+                            }
+                            else
+                            {
+                                TeacherList.Add(new Teacher
+                                {
+                                    Name =File.ReadAllText("Ticher.txt") ,
+                                    TwoClasses= true,
+                                    Lesson =  "magic",
+                                    Start = StartTime,
+                                    End= EndTime
+                                });
+                            }
+                            
+                        }
+                        else if (input == "o")
+                        {
+                            Console.Write("Please enter your start time :");
+                            string StartTime = Console.ReadLine();
+                            Console.Write("Please enter your end time :");
+                            string EndTime = Console.ReadLine();
+                            int num = 0;
+                            foreach(var teacher in TeacherList)
+                            {
+                                if(teacher.Name == File.ReadAllText("Ticher.txt") && teacher.Start == StartTime && teacher.End == EndTime)
+                                {
+                                    num++;
+                                }
+                            }
+                            if(num >= 1)
+                            {
+                                Console.Clear();
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.WriteLine("you can not choose 2 lesson in one time.");
+                                Console.ResetColor();
+                                TeacherOneLesson();
+                            }
+                            else
+                            {
+                                TeacherList.Add(new Teacher
+                                {
+                                    Name =File.ReadAllText("Ticher.txt") ,
+                                    TwoClasses= true,
+                                    Lesson =  "occultism",
+                                    Start = StartTime,
+                                    End= EndTime
+                                });
+                            }
+                            
+                        }
+                        else if (input == "s")
+                        {
+                            Console.Write("Please enter your start time :");
+                            string StartTime = Console.ReadLine();
+                            Console.Write("Please enter your end time :");
+                            string EndTime = Console.ReadLine();
+                            int num = 0;
+                            foreach(var teacher in TeacherList)
+                            {
+                                if(teacher.Name == File.ReadAllText("Ticher.txt") && teacher.Start == StartTime && teacher.End == EndTime)
+                                {
+                                    num++;
+                                }
+                            }
+                            if(num >= 1)
+                            {
+                                Console.Clear();
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.WriteLine("you can not choose 2 lesson in one time.");
+                                Console.ResetColor();
+                                TeacherOneLesson();
+                            }
+                            else
+                            {
+                                TeacherList.Add(new Teacher
+                                {
+                                    Name =File.ReadAllText("Ticher.txt") ,
+                                    TwoClasses= true,
+                                    Lesson =  "sport",
+                                    Start = StartTime,
+                                    End= EndTime
+                                });
+                            }
+                            
+                        }
+                        else
+                        {
+                            Console.Clear ();
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("Wrong input !!!");
+                            Console.ResetColor ();
+                            TeacherOneLesson();
+                        }
+                    }
+
         }
         public static void StudentSignIn()
         {
